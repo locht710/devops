@@ -29,10 +29,13 @@ jobs:
             wget https://dl.google.com/go/go1.12.2.linux-amd64.tar.gz
             sudo tar -xvf go1.12.2.linux-amd64.tar.gz
             sudo mv go /usr/local
+
+      - run:
+          name: Install amazon-ecr-credential-helper
+          command:
             export GOROOT=/usr/local/go
             export PATH=$GOROOT/bin:$PATH
             go get -u github.com/awslabs/amazon-ecr-credential-helper/ecr-login/cli/docker-credential-ecr-login
-
       # Download and cache dependencies
       - restore_cache:
           keys:
