@@ -32,7 +32,7 @@ jobs:
 
       - run:
           name: Install amazon-ecr-credential-helper
-          command:
+          command: |
             export GOROOT=/usr/local/go
             export PATH=$GOROOT/bin:$PATH
             go get -u github.com/awslabs/amazon-ecr-credential-helper/ecr-login/cli/docker-credential-ecr-login
