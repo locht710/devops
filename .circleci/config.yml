@@ -33,8 +33,7 @@ jobs:
       - run:
           name: Install amazon-ecr-credential-helper
           command: |
-            cd /usr/local
-            ls
+            export PATH=$PATH:/usr/local
             go get -u github.com/awslabs/amazon-ecr-credential-helper/ecr-login/cli/docker-credential-ecr-login
             sudo mv docker-credential-ecr-login /usr/local/
       # Download and cache dependencies
@@ -63,4 +62,8 @@ jobs:
 
       # run tests!
       - run: mvn test
-      - run: mvn jib:build
+      - run:
+          name: Build and Deploy images
+          command: |
+            export PATH=$PATH:/usr/local
+            mvn jib:build
