@@ -23,7 +23,11 @@ jobs:
 
     steps:
       - checkout
-
+      - run:
+          name: Install amazon-ecr-credential-helper
+          command: |
+            sudo apt update
+            sudo apt install amazon-ecr-credential-helper
       # Download and cache dependencies
       - restore_cache:
           keys:
