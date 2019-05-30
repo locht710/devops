@@ -30,11 +30,9 @@ jobs:
             sudo tar -xvf go1.12.2.linux-amd64.tar.gz
             sudo mv go /usr/local
             export GOROOT=/usr/local/go
-            export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-      - run:
-          name: Install amazon-ecr-credential-helper
-          command:
+            export PATH=$GOROOT/bin:$PATH
             go get -u github.com/awslabs/amazon-ecr-credential-helper/ecr-login/cli/docker-credential-ecr-login
+
       # Download and cache dependencies
       - restore_cache:
           keys:
