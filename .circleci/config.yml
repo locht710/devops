@@ -13,6 +13,7 @@ jobs:
         environment:
           POSTGRES_USER: postgres
           POSTGRES_DB: postgres
+          POSTGRES_PASSWORD: postgres
 
     working_directory: ~/repo
 
